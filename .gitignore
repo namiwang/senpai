@@ -1,0 +1,10 @@
+/node_modules/
+
+# REMOVE LATER
+/bower_components/
+
+/build/
+
+/src/**/*.js
+
+.DS_Store
