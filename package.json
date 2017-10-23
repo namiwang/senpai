@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-coffeescript": "^0.0.15",
+    "gulp-if": "^2.0.2",
+    "gulp-sass": "^3.1.0",
+    "polymer-build": "^2.1.0"
+  }
+}

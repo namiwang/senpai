@@ -6,5 +6,11 @@
 /build/
 
 /src/**/*.js
+/src/**/*.css
+/src/**/*.css.map
 
 .DS_Store
+
+/.sass-cache/
+
+/gulpfile.js
