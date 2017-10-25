@@ -1,4 +1,6 @@
-class SenpaiApp extends Polymer.Element
+class SenpaiApp extends SenpaiBase
+  ready: ->
+    super()
 
 Object.defineProperty SenpaiApp, 'is',
   get: -> 'senpai-app'

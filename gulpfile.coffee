@@ -12,6 +12,16 @@
 # we're not using gulp-coffeescript, since, there's no support for coffee2
 # 
 
+# 
+# NOTE
+# 
+# so current build steps:
+# 
+# 1. coffee -cwb *.coffee src
+# 2. gulp watch
+# 3. http-server
+# 
+
 $ = require 'gulp'
 
 gulp_if = require 'gulp-if'
