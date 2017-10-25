@@ -1,7 +1,8 @@
 # TODO
 # gulp plugins loader
+# haml: rescure error
 # watch
-# lint
+# lint, analyze
 
 # WATCH
 # 
@@ -32,21 +33,28 @@ style_inject = require 'gulp-style-inject'
 PolymerProject = require('polymer-build').PolymerProject
 project = new PolymerProject(require('./polymer.json'))
 
-$.task 'watch', ->
-  $.watch ['src/**/*.haml', 'src/**/*.sass'], ->
-    $
-      .src ['src/**/*.haml'], { base: '.' }
-      .pipe haml()
-      .pipe $.dest './'
+$.task 'compile', ->
+  $
+    .src ['src/**/*.haml'], { base: '.' }
+    .pipe haml()
+    .pipe $.dest './'
 
-    $
-      .src ['src/**/*.sass'], { base: '.' }
-      .pipe sass()
-      .pipe $.dest './'
+  $
+    .src ['src/**/*.sass'], { base: '.' }
+    .pipe sass()
+    .pipe $.dest './'
 
-  $.start 'build'
+# $.task 'watch', ->
+#   $.start 'compile'
+
+#   $.watch ['src/**/*.haml', 'src/**/*.sass'], ->
+#     $.start 'compile'
+
+#   $.start 'build'
 
 $.task 'build', ->
+  $.start 'compile'
+
   sourcesStream = project.sources()
     .pipe gulp_if(/\.html$/, style_inject( { path: 'src/components/' } ))
     .pipe $.dest('build')

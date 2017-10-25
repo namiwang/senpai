@@ -7,11 +7,6 @@ Object.defineProperty SenpaiApp, 'is',
 
 Object.defineProperty SenpaiApp, 'properties',
   get: ->
-    {
-      prop1: {
-        type: String
-        value: 'senpai-app'
-      }
-    }
+    {}
 
 window.customElements.define SenpaiApp.is, SenpaiApp

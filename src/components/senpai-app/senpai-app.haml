@@ -1,7 +1,16 @@
-/ %link{rel: 'import', href: '../senpai-base/senpai-base.html'}
+%link{rel: 'import', href: '../../../bower_components/iron-flex-layout/iron-flex-layout-classes.html'}
+
+%link{rel: 'import', href: '../../../bower_components/iron-pages/iron-pages.html'}
+
+%link{rel: 'import', href: '../opening-screen/opening-screen.html'}
 
 %dom-module#senpai-app
   %template
+    %style{include: 'iron-flex'}
+
     / inject-style src="senpai-app/senpai-app.css"
+
+    %iron-pages#screens.flex.layout.vertical{selectable: '.screen', 'attr-for-selected': 'screen-name', selected: 'loading'}
+      %senpai-opening-screen.screen.flex{'screen-name': 'loading'}
 
   %script{src: 'senpai-app.js'}
