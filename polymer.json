@@ -3,6 +3,9 @@
   "sources": [
     "src/**/*"
   ],
+  "extraDependencies": [
+    "assets/**"
+  ],
   "lint": {
     "rules": [
       "polymer-2"

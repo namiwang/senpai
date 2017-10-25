@@ -1,5 +1,3 @@
-%link{rel: 'import', href: '../../../bower_components/iron-flex-layout/iron-flex-layout-classes.html'}
-
 %link{rel: 'import', href: '../../../bower_components/iron-pages/iron-pages.html'}
 
 %link{rel: 'import', href: '../opening-screen/opening-screen.html'}
@@ -7,12 +5,10 @@
 
 %dom-module#senpai-app
   %template
-    %style{include: 'iron-flex'}
-
     / inject-style src="app/app.css"
 
-    %iron-pages#screens.flex.layout.vertical{selectable: '.screen', 'attr-for-selected': 'screen-name', selected: 'loading'}
-      %senpai-loading-screen.screen.flex{'screen-name': 'loading'}
-      %senpai-opening-screen.screen.flex{'screen-name': 'opening'}
+    %iron-pages#screens{selectable: '.screen', 'attr-for-selected': 'screen-name', selected: 'loading'}
+      %senpai-loading-screen.screen{'screen-name': 'loading'}
+      %senpai-opening-screen.screen{'screen-name': 'opening'}
 
   %script{src: 'app.js'}

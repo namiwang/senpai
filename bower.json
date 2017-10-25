@@ -3,7 +3,6 @@
   "main": "index.html",
   "dependencies": {
     "polymer": "Polymer/polymer#^2.0.0",
-    "iron-flex-layout": "PolymerElements/iron-flex-layout#^2.0.0",
     "iron-pages": "PolymerElements/iron-pages#^2.0.0"
   },
   "devDependencies": {
