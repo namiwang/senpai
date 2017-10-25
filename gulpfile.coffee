@@ -8,25 +8,37 @@
 # *.coffee (for gulpfile.coffee) and src/**/*.coffee
 # coffee -cwb *.coffee src
 # 
-# sass
-# sass --watch src:src
+# NOTE
+# we're not using gulp-coffeescript, since, there's no support for coffee2
 # 
 
 $ = require 'gulp'
 
-gulpif = require 'gulp-if'
-# coffeescript = require 'gulp-coffeescript'
-# sass = require 'gulp-sass'
+gulp_if = require 'gulp-if'
+sass = require 'gulp-sass'
+haml = require 'gulp-ruby-haml'
 style_inject = require 'gulp-style-inject'
 
 PolymerProject = require('polymer-build').PolymerProject
 project = new PolymerProject(require('./polymer.json'))
 
+$.task 'watch', ->
+  $.watch ['src/**/*.haml', 'src/**/*.sass'], ->
+    $
+      .src ['src/**/*.haml'], { base: '.' }
+      .pipe haml()
+      .pipe $.dest './'
+
+    $
+      .src ['src/**/*.sass'], { base: '.' }
+      .pipe sass()
+      .pipe $.dest './'
+
+  $.start 'build'
+
 $.task 'build', ->
   sourcesStream = project.sources()
-    # .pipe gulpif(/\.coffee$/, coffeescript({bare: true}))
-    # .pipe gulpif(/\.sass$/, sass())
-    .pipe gulpif(/\.html$/, style_inject( { path: 'src/components/' } ))
+    .pipe gulp_if(/\.html$/, style_inject( { path: 'src/components/' } ))
     .pipe $.dest('build')
 
   project.dependencies()

@@ -8,6 +8,7 @@
 /src/**/*.js
 /src/**/*.css
 /src/**/*.css.map
+/src/**/*.html
 
 .DS_Store
 
