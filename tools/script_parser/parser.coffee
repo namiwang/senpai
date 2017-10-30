@@ -1,5 +1,22 @@
 # TODO separate into an individual repo
 # TODO command usage via yargs
+# TODO currently node id starting from 1, should be 0
+# 
+# TODO
+# current:
+# node:
+#   id: 1
+#   type: video
+#   video: opening
+#   allowSkipping: true
+# 
+# maybe should be:
+# node:
+#   id: 1
+#   type: video
+#   video: opening
+#   options:
+#     allowSkipping: true
 
 argv = require('yargs').argv
 

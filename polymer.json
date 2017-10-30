@@ -4,6 +4,7 @@
     "src/**/*"
   ],
   "extraDependencies": [
+    "bower_components/bttn.css/dist/standalone/minimal.css",
     "assets/**",
     "resources/**"
   ],

@@ -1,7 +1,16 @@
+/ TODO
+/ btn style, try bttn.css
+
 %link{rel: 'import', href: '../base/base.html'}
 
 %dom-module#senpai-opening-screen
   %template
-    opening screen
+    / TODO
+    / inject-style src="../../bower_components/bttn.css/dist/standalone/minimal.css"
+    / inject-style src="opening-screen/opening-screen.css"
+
+    .btn-group
+      %button#start.bttn-minimal.bttn-md.bttn-danger{'on-click': '_handle_start_btn_click'}
+        abcd
 
   %script{src: 'opening-screen.js'}
