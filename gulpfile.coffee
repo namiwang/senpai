@@ -1,7 +1,6 @@
 # TODO
-# gulp plugins loader
-# haml: rescure error
 # watch
+# haml: rescure error
 # lint, analyze
 # cleanup
 
@@ -25,11 +24,12 @@
 # 
 
 $ = require 'gulp'
+$.if = require 'gulp-if'
+$.sass = require 'gulp-sass'
+$.haml = require 'gulp-ruby-haml'
+$.style_inject = require 'gulp-style-inject'
 
-gulp_if = require 'gulp-if'
-sass = require 'gulp-sass'
-haml = require 'gulp-ruby-haml'
-style_inject = require 'gulp-style-inject'
+run = require 'run-sequence'
 
 PolymerProject = require('polymer-build').PolymerProject
 project = new PolymerProject(require('./polymer.json'))
@@ -37,34 +37,33 @@ project = new PolymerProject(require('./polymer.json'))
 $.task 'compile', ->
   $
     .src ['src/**/*.haml'], { base: '.' }
-    .pipe haml()
+    .pipe $.haml()
     .pipe $.dest './'
 
   $
     .src ['src/**/*.sass'], { base: '.' }
-    .pipe sass()
+    .pipe $.sass()
     .pipe $.dest './'
 
-$.task 'watch', ->
-  $.start 'compile'
+# $.task 'watch', ->
+#   $.start 'compile'
 
-  $.watch ['src/**/*.haml', 'src/**/*.sass'], ->
-    $.start 'compile'
+#   $.watch ['src/**/*.haml', 'src/**/*.sass'], ->
+#     $.start 'compile'
 
-  $.start 'build'
+#   $.start 'build'
 
-$.task 'build', ->
-  # TODO make this async (run-sequence i guess)
-  $.start 'compile'
-
-  # TODO clean
-
+$.task 'do-build', ->
   is_component_html = (file) -> /^.*src\/components\/.*\.html$/.test file.path
 
   sourcesStream = project.sources()
     # TODO only inject components
-    .pipe gulp_if(is_component_html, style_inject( { path: 'src/components/' } ))
+    .pipe $.if(is_component_html, $.style_inject( { path: 'src/components/' } ))
     .pipe $.dest('build')
 
   project.dependencies()
     .pipe $.dest('build')
+
+$.task 'build', ->
+  # TODO clean
+  run [ 'compile' ], 'do-build'

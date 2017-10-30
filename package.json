@@ -5,6 +5,7 @@
     "gulp-ruby-haml": "^0.0.9",
     "gulp-sass": "^3.1.0",
     "gulp-style-inject": "^0.1.0",
-    "polymer-build": "^2.1.0"
+    "polymer-build": "^2.1.0",
+    "run-sequence": "^2.2.0"
   }
 }
