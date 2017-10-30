@@ -3,6 +3,7 @@
 # haml: rescure error
 # watch
 # lint, analyze
+# cleanup
 
 # WATCH
 # 
@@ -44,19 +45,25 @@ $.task 'compile', ->
     .pipe sass()
     .pipe $.dest './'
 
-# $.task 'watch', ->
-#   $.start 'compile'
-
-#   $.watch ['src/**/*.haml', 'src/**/*.sass'], ->
-#     $.start 'compile'
-
-#   $.start 'build'
-
-$.task 'build', ->
+$.task 'watch', ->
   $.start 'compile'
 
+  $.watch ['src/**/*.haml', 'src/**/*.sass'], ->
+    $.start 'compile'
+
+  $.start 'build'
+
+$.task 'build', ->
+  # TODO make this async (run-sequence i guess)
+  $.start 'compile'
+
+  # TODO clean
+
+  is_component_html = (file) -> /^.*src\/components\/.*\.html$/.test file.path
+
   sourcesStream = project.sources()
-    .pipe gulp_if(/\.html$/, style_inject( { path: 'src/components/' } ))
+    # TODO only inject components
+    .pipe gulp_if(is_component_html, style_inject( { path: 'src/components/' } ))
     .pipe $.dest('build')
 
   project.dependencies()

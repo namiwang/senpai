@@ -1,0 +1,30 @@
+!!!
+%html
+  %head
+    %meta{charset: "utf-8"}
+    %meta{content: "width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes", name: "viewport"}
+
+    / TODO
+    %title senpai
+    %meta{content: "senpai description", name: "description"}
+
+    / TODO
+    / See https://goo.gl/OOhYW5
+    / <link rel="manifest" href="/manifest.json">
+
+    %script{src: "../bower_components/webcomponentsjs/webcomponents-loader.js"}
+    %link{href: "styles/main.css", rel: "stylesheet"}
+
+    / TODO
+    %link{rel: 'import', href: '../bower_components/iron-pages/iron-pages.html'}
+
+    %link{rel: 'import', href: './components/opening-screen/opening-screen.html'}
+    %link{rel: 'import', href: './components/loading-screen/loading-screen.html'}
+
+  %body
+    #app
+      %iron-pages#screens{selectable: '.screen', 'attr-for-selected': 'screen-name', selected: 'loading'}
+        %senpai-loading-screen.screen{'screen-name': 'loading'}
+        %senpai-opening-screen.screen{'screen-name': 'opening'}
+
+    %script{src: './scripts/main.js'}
