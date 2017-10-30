@@ -1,4 +1,4 @@
-class SenpaiBase extends Polymer.Element
+window.SenpaiBase = class SenpaiBase extends Polymer.Element
   ready: ->
     console.info "#{@nodeName}: ready"
 

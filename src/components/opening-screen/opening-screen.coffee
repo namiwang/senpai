@@ -1,4 +1,4 @@
-class SenpaiOpeningScreen extends SenpaiBase
+class SenpaiOpeningScreen extends window.SenpaiBase
   ready: ->
     super()
 

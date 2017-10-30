@@ -1,0 +1,102 @@
+V
+opening
+  allowSkipping: true
+
+N
+僖公三十三年
+  background: 'gate_1'
+九月．甲午．
+晉侯．秦伯．圍鄭．
+佚之狐言於鄭伯
+  tachies: [
+    { yizhihu: 'default' }
+  ]
+  background:
+    name: 'yard'
+
+yizhihu
+國危矣．若使燭之武見秦君．師必退．
+
+D
+公何爲？
+  choices:
+    [
+      {
+        text: '公從之'
+        ref: 'anchor1'
+      },
+      {
+        text: '公非之'
+        ref: 'anchor2'
+     }
+    ]
+
+N
+公從之．
+  tachies: []
+  anchor: 'anchor1'
+
+zhuzhiwu
+辭曰．臣之壯也．猶不如人．今老矣．無能為也已．
+  tachies: [
+    { zhuzhiwu: 'default' }
+  ]
+
+zhengbo
+公曰．吾不能早用子．今急而求子．是寡人之過也．然鄭亡．子亦有不利焉．
+
+N
+許之．夜縋而出．
+  background:
+    name: 'sky'
+
+N
+見秦伯
+  tachies: [
+    { qinbo: 'default' }
+  ]
+  bgm: 'riding_the_dragon'
+
+zhuzhiwu
+曰秦晉圍鄭．鄭既知亡矣．
+  tachies: [
+    { zhuzhiwu: 'default' }
+  ]
+若亡鄭而有益於君．敢以煩執事．
+越國以鄙遠．君知其難也．焉用亡鄭以倍鄰？
+鄰之厚．君之薄也．
+若舍鄭以為東道主．行李之往來．共其乏困．君亦無所害．
+且君嘗為晉君賜矣．許君焦瑕．朝濟而夕設版焉．君之所知也．
+夫晉何厭之有？既東封鄭．又欲肆其西封．若不闕秦．將焉取之？
+闕秦以利晉．唯君圖之．
+
+qinbo
+秦伯說．與鄭人盟．
+  tachies: [
+    { qinbo: 'default' }
+  ]
+  background:
+    name: 'yard'
+
+N
+- GE Fin -
+  isEnding: true
+  background:
+    name: 'winter'
+  tachies: []
+
+qinbo
+秦伯怒．
+  anchor: 'anchor2'
+  tachies: [
+    { qinbo: 'default' }
+  ]
+  background:
+    name: 'yard'
+
+N
+- BE Fin -
+  isEnding: true
+  background:
+    name: 'winter'
+  tachies: []

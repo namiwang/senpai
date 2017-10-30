@@ -10,6 +10,8 @@
 /src/**/*.css.map
 /src/**/*.html
 
+/resources/**/*.json
+
 .DS_Store
 
 /.sass-cache/
